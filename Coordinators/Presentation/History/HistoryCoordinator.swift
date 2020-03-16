@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HistoryFlow {
-    func coordinateToDetail()
+    func coordinateToDetail(with title: String)
 }
 
 class HistoryCoordinator: Coordinator, HistoryFlow {
@@ -28,8 +28,12 @@ class HistoryCoordinator: Coordinator, HistoryFlow {
     }
     
     // MARK: - Flow Methods
-    func coordinateToDetail() {
-        let historyDetailCoordinator = HistoryDetailCoordinator(navigationController: navigationController)
+    func coordinateToDetail(with title: String) {
+        let historyDetailCoordinator = HistoryDetailCoordinator(
+            navigationController: navigationController,
+            historyItemTitle: title
+        )
+        
         coordinate(to: historyDetailCoordinator)
     }
     

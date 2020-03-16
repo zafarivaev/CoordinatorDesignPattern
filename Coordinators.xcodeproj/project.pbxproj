@@ -25,6 +25,7 @@
 		1CD7964E241F471C00A2DC72 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD7964D241F471C00A2DC72 /* HistoryDetailViewController.swift */; };
 		1CD79650241F472700A2DC72 /* SearchDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD7964F241F472700A2DC72 /* SearchDetailCoordinator.swift */; };
 		1CD79652241F472F00A2DC72 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD79651241F472F00A2DC72 /* SearchDetailViewController.swift */; };
+		1CD79654241F87A600A2DC72 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD79653241F87A600A2DC72 /* HistoryItem.swift */; };
 		1CE513A5241E64C5008FAE23 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE513A4241E64C5008FAE23 /* StartViewController.swift */; };
 		1CE513A7241E64D0008FAE23 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE513A6241E64D0008FAE23 /* TabBarController.swift */; };
 		1CE513AB241E6560008FAE23 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE513AA241E6560008FAE23 /* StartCoordinator.swift */; };
@@ -51,6 +52,7 @@
 		1CD7964D241F471C00A2DC72 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 		1CD7964F241F472700A2DC72 /* SearchDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCoordinator.swift; sourceTree = "<group>"; };
 		1CD79651241F472F00A2DC72 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		1CD79653241F87A600A2DC72 /* HistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItem.swift; sourceTree = "<group>"; };
 		1CE513A4241E64C5008FAE23 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		1CE513A6241E64D0008FAE23 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1CE513AA241E6560008FAE23 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				1CD7963A241EBEA200A2DC72 /* HistoryCoordinator.swift */,
 				1CD79638241EBE9500A2DC72 /* HistoryViewController.swift */,
+				1CD79653241F87A600A2DC72 /* HistoryItem.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				1CD79641241EBEE300A2DC72 /* TopRatedViewController.swift in Sources */,
 				1C776548241EBB3700E70457 /* TabBarCoordinator.swift in Sources */,
 				1C776541241E96C400E70457 /* Coordinator.swift in Sources */,
+				1CD79654241F87A600A2DC72 /* HistoryItem.swift in Sources */,
 				1CD7963D241EBEAB00A2DC72 /* SearchCoordinator.swift in Sources */,
 				1CE513AB241E6560008FAE23 /* StartCoordinator.swift in Sources */,
 				1CE513A5241E64C5008FAE23 /* StartViewController.swift in Sources */,

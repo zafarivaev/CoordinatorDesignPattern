@@ -15,29 +15,46 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
-    
-    // MARK: - Actions
-    @objc func showDetailTapped(_ sender: UIButton) {
-        coordinator?.coordinateToDetail()
-    }
-    
+
     // MARK: - Properties
     var coordinator: HistoryFlow?
     
-    let showDetailButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Show detail", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor.systemPurple
-        button.layer.cornerRadius = 10
-        button.layer.shadowRadius = 5
-        button.layer.shadowColor = UIColor.purple.cgColor
-        button.layer.shadowOpacity = 1.0
-        button.layer.shadowOffset = CGSize(width: -1, height: 3)
-        button.addTarget(self, action: #selector(showDetailTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    let historyItems: [HistoryItem] = [.init(title: "First item"),
+                                       .init(title: "Second item"),
+                                       .init(title: "Third item"),
+                                       .init(title: "Fourth item")]
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
+}
+
+// MARK: - UITableView Delegate & Data Source
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return historyItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        cell.textLabel?.text = historyItems[indexPath.row].title
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.coordinateToDetail(with: historyItems[indexPath.row].title)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 // MARK: - UI Setup
@@ -48,15 +65,13 @@ extension HistoryViewController {
         }
         
         self.view.backgroundColor = .white
-        self.view.addSubview(showDetailButton)
+        self.view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            showDetailButton.widthAnchor
-                .constraint(equalToConstant: UIScreen.main.bounds.width / 3),
-            showDetailButton.heightAnchor
-                .constraint(equalToConstant: 50),
-            showDetailButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            showDetailButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            tableView.widthAnchor
+                .constraint(equalTo: self.view.widthAnchor),
+            tableView.heightAnchor
+                .constraint(equalTo: self.view.heightAnchor)
         ])
     }
 }

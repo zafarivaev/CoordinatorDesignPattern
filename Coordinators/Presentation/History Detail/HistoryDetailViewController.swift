@@ -23,6 +23,18 @@ class HistoryDetailViewController: UIViewController {
     
     // MARK: - Properties
     var coordinator: HistoryDetailFlow?
+    var historyItemTitle: String? {
+        didSet {
+            self.titleLabel.text = historyItemTitle
+        }
+    }
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemIndigo
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     let dismissDetailButton: UIButton = {
         let button = UIButton()
@@ -48,9 +60,13 @@ extension HistoryDetailViewController {
             overrideUserInterfaceStyle = .light
         }
         self.view.backgroundColor = .white
+        self.view.addSubview(titleLabel)
         self.view.addSubview(dismissDetailButton)
         
         NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20),
+            
             dismissDetailButton.widthAnchor
                 .constraint(equalToConstant: UIScreen.main.bounds.width / 3),
             dismissDetailButton.heightAnchor
