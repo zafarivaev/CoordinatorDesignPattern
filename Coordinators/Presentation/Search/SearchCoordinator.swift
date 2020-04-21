@@ -14,7 +14,7 @@ protocol SearchFlow: class {
 
 class SearchCoordinator: Coordinator, SearchFlow {
     
-    let navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -24,12 +24,12 @@ class SearchCoordinator: Coordinator, SearchFlow {
         let searchViewController = SearchViewController()
         searchViewController.coordinator = self
         
-        navigationController.pushViewController(searchViewController, animated: false)
+        navigationController?.pushViewController(searchViewController, animated: false)
     }
     
     // MARK: - Flow Methods
     func coordinateToDetail() {
-        let searchDetailCoordinator = SearchDetailCoordinator(navigationController: navigationController)
+        let searchDetailCoordinator = SearchDetailCoordinator(navigationController: navigationController!)
         coordinate(to: searchDetailCoordinator)
     }
     

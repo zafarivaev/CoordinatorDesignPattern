@@ -44,5 +44,4 @@ class TabBarCoordinator: Coordinator {
         coordinate(to: searchCoordinator)
         coordinate(to: historyCoordinator)
     }
-
 }

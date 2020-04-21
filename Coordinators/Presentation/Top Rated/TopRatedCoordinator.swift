@@ -14,7 +14,7 @@ protocol TopRatedFlow: class {
 
 class TopRatedCoordinator: Coordinator, TopRatedFlow {
     
-    let navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -24,12 +24,12 @@ class TopRatedCoordinator: Coordinator, TopRatedFlow {
         let topRatedViewController = TopRatedViewController()
         topRatedViewController.coordinator = self
         
-        navigationController.pushViewController(topRatedViewController, animated: false)
+        navigationController?.pushViewController(topRatedViewController, animated: false)
     }
     
     // MARK: - Flow Methods
     func coordinateToDetail() {
-        let topRatedDetailCoordinator = TopRatedDetailCoordinator(navigationController: navigationController)
+        let topRatedDetailCoordinator = TopRatedDetailCoordinator(navigationController: navigationController!)
         coordinate(to: topRatedDetailCoordinator)
     }
 }

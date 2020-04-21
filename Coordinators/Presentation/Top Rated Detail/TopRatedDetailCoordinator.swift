@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TopRatedDetailFlow {
+protocol TopRatedDetailFlow: class {
     func dismissDetail()
 }
 

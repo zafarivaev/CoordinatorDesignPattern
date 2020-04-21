@@ -14,7 +14,7 @@ protocol HistoryFlow {
 
 class HistoryCoordinator: Coordinator, HistoryFlow {
     
-    let navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -24,13 +24,13 @@ class HistoryCoordinator: Coordinator, HistoryFlow {
         let historyViewController = HistoryViewController()
         historyViewController.coordinator = self
         
-        navigationController.pushViewController(historyViewController, animated: false)
+        navigationController?.pushViewController(historyViewController, animated: false)
     }
     
     // MARK: - Flow Methods
     func coordinateToDetail(with title: String) {
         let historyDetailCoordinator = HistoryDetailCoordinator(
-            navigationController: navigationController,
+            navigationController: navigationController!,
             historyItemTitle: title
         )
         
